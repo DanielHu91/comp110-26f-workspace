@@ -13,7 +13,7 @@
 	"settings": {
 		"window.title": "${activeEditorShort} ${separator} COMP110 26F Workspace",
 		"workbench.startupEditor": "none",
-		"chat.disableAIFeatures": true,
+		"chat.disableAIFeatures": false,
 		"github.copilot.enable": {
 			"*": false
 		},
