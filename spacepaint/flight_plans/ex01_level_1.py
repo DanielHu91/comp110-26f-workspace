@@ -8,21 +8,22 @@ __author__: str = "730664641"
 def main(aura: Ship) -> None:
     """Your Space Paint program's entrypoint."""
     # Your commands here
-    aura.beam(on=False)
-    aura.turn(degrees=45)
-    aura.forward(units=4.2426)
-    aura.turn(degrees=135)
     aura.beam(on=True)
-    aura.forward(units=6)
-    aura.turn(degrees=90)
-    aura.beam(on=True)
-    aura.forward(units=6)
-    aura.turn(degrees=90)
-    aura.beam(on=True)
-    aura.forward(units=6)
-    aura.turn(degrees=90)
-    aura.beam(on=True)
-    aura.forward(units=6)
+    square(ship=aura)
+    square(ship=aura)
+    square(ship=aura)
+    square(ship=aura)
+    return None
+
+
+def square(ship: Ship) -> None:
+    ship.forward(units=6)
+    ship.turn(degrees=90)
+    ship.forward(units=6)
+    ship.turn(degrees=90)
+    ship.forward(units=6)
+    ship.turn(degrees=90)
+    ship.forward(units=6)
     return None
 
 
