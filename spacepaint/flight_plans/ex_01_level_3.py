@@ -9,21 +9,22 @@ def main(aura: Ship) -> None:
     """Your Space Paint program's entrypoint."""
     # Your commands here
     aura.beam(on=True)
-    square(ship=aura)
-    square(ship=aura)
-    square(ship=aura)
-    square(ship=aura)
+    square(aura, 4)
+    square(aura, 3)
+    square(aura, 2)
+    square(aura, 1)
     return None
 
 
-def square(ship: Ship) -> None:
-    ship.forward(units=6)
+def square(ship: Ship, side: float) -> None:
+    ship.forward(units=side)
     ship.turn(degrees=90)
-    ship.forward(units=6)
+    ship.forward(units=side)
     ship.turn(degrees=90)
-    ship.forward(units=6)
+    ship.forward(units=side)
     ship.turn(degrees=90)
-    ship.forward(units=6)
+    ship.forward(units=side)
+
     return None
 
 
