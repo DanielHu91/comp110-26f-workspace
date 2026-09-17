@@ -17,6 +17,7 @@ def main(aura: Ship) -> None:
 
 
 def square(ship: Ship) -> None:
+    """Draw the shape here"""
     ship.forward(units=6)
     ship.turn(degrees=90)
     ship.forward(units=6)
