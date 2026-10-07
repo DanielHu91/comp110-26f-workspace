@@ -1,9 +1,13 @@
+<<<<<<< HEAD
 
 """This program draws an observatory, Jupiter, and a constellation."""
 
 """Making art... in space!"""
 
 """This program draws an observatory on the ground, Jupiter in the sky, and a constellation further away."""
+=======
+"""This program draws an observatory, Jupiter, and a constellation."""
+>>>>>>> 86c7c64 (commit)
 
 from math import atan2, degrees, sqrt
 
@@ -18,6 +22,7 @@ def main(aura: Ship) -> None:
 
     draw_observatory(aura, -5, 0)
 <<<<<<< HEAD
+<<<<<<< HEAD
     draw_planet(aura, 10, 20, 4, "#8B4513", True)
     draw_planet(aura, 30, 20, 3.5, "#FAE5BF", False)
     draw_planet(aura, 50, 20, 3, "#ADD8E6", False)
@@ -29,6 +34,13 @@ def main(aura: Ship) -> None:
     draw_planet(aura, 20, 10, 2, "#FAE5BF")
     draw_constellation(aura, 50, 50)
 >>>>>>> 5dc64dd (Updated files for ex03_creative)
+=======
+    draw_planet(aura, 10, 20, 4, "#8B4513", True)
+    draw_planet(aura, 30, 20, 3.5, "#FAE5BF", False)
+    draw_planet(aura, 50, 20, 3, "#ADD8E6", False)
+    draw_constellation(aura, 50, 50)
+    draw_rocket(aura, 15, 0)
+>>>>>>> 86c7c64 (commit)
     return None
 
     # Define your navigation helpers and scene procedures outside of main.
@@ -84,10 +96,14 @@ def move_to(ship: Ship, x: float, y: float) -> None:
 
 def turn_to(ship: Ship, heading: float) -> None:
 <<<<<<< HEAD
+<<<<<<< HEAD
     """Turn ship"""
 =======
     """Rotate the ship to face an absolute heading, regardless of its current heading."""
 >>>>>>> 5dc64dd (Updated files for ex03_creative)
+=======
+    """Turn ship"""
+>>>>>>> 86c7c64 (commit)
     ship.turn(heading - ship.heading_x_y)
 
 
@@ -124,14 +140,20 @@ def draw_dome(ship: Ship, radius: float) -> None:
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 86c7c64 (commit)
 def draw_planet(
     ship: Ship, x: float, y: float, radius: float, color: str, spot_on: bool = True
 ) -> None:
     """Draw Jupiter"""
+<<<<<<< HEAD
 =======
 def draw_planet(ship: Ship, x: float, y: float, radius: float, color: str) -> None:
     """Draw a Jupiter-like planet at (x, y) with the given radius and a Great Red Spot."""
 >>>>>>> 5dc64dd (Updated files for ex03_creative)
+=======
+>>>>>>> 86c7c64 (commit)
     spot_radius = radius * 0.27
     spot_offset = radius * 0.15
 
@@ -145,6 +167,9 @@ def draw_planet(ship: Ship, x: float, y: float, radius: float, color: str) -> No
     ship.beam(on=False)
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 86c7c64 (commit)
     if spot_on is True:
         move_to(ship, x + spot_offset, y + spot_offset)
         turn_to(ship, 0.0)
@@ -154,6 +179,7 @@ def draw_planet(ship: Ship, x: float, y: float, radius: float, color: str) -> No
         ship.arc(radius=spot_radius, degrees=360.0)
         ship.fill(on=False)
         ship.beam(on=False)
+<<<<<<< HEAD
 =======
     move_to(ship, x + spot_offset, y + spot_offset)
     turn_to(ship, 0.0)
@@ -164,28 +190,40 @@ def draw_planet(ship: Ship, x: float, y: float, radius: float, color: str) -> No
     ship.fill(on=False)
     ship.beam(on=False)
 >>>>>>> 5dc64dd (Updated files for ex03_creative)
+=======
+>>>>>>> 86c7c64 (commit)
     return None
 
 
 def draw_constellation(ship: Ship, x: float, y: float) -> None:
     """Draw the Big Dipper as stars placed relative to (x, y)."""
 <<<<<<< HEAD
+<<<<<<< HEAD
     bowl: list[tuple[float, float]] = [
 =======
     star_offsets: list[tuple[float, float]] = [
 >>>>>>> 5dc64dd (Updated files for ex03_creative)
+=======
+    bowl: list[tuple[float, float]] = [
+>>>>>>> 86c7c64 (commit)
         (3.0, -3.6),
         (-6.0, -2.5),
         (-6.6, 3.0),
         (5.4, 2.1),
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 86c7c64 (commit)
         (3.0, -3.6),
     ]
 
     handle: list[tuple[float, float]] = [
         (-6.6, 3.0),
+<<<<<<< HEAD
 =======
 >>>>>>> 5dc64dd (Updated files for ex03_creative)
+=======
+>>>>>>> 86c7c64 (commit)
         (-15.0, 9.0),
         (-20.4, 15.0),
         (-30.0, 15.6),
@@ -194,18 +232,24 @@ def draw_constellation(ship: Ship, x: float, y: float) -> None:
     ship.beam(on=False)
     index = 0
 <<<<<<< HEAD
+<<<<<<< HEAD
     while index < len(bowl):
         dx, dy = bowl[index]
 =======
     while index < len(star_offsets):
         dx, dy = star_offsets[index]
 >>>>>>> 5dc64dd (Updated files for ex03_creative)
+=======
+    while index < len(bowl):
+        dx, dy = bowl[index]
+>>>>>>> 86c7c64 (commit)
         move_to(ship, x + dx, y + dy)
         turn_to(ship, 0.0)
         ship.beam(on=True)
         ship.beam_color(value="white")
         ship.fill(on=True, opacity=0.9)
         ship.arc(radius=0.3, degrees=360.0)
+<<<<<<< HEAD
 <<<<<<< HEAD
         # ship.beam(on=False)
         index += 1
@@ -283,6 +327,79 @@ def draw_rocket(ship: Ship, x: float, y: float) -> None:
         index += 1
 
 >>>>>>> 5dc64dd (Updated files for ex03_creative)
+=======
+        # ship.beam(on=False)
+        index += 1
+
+    i = 0
+    ship.beam(on=False)
+    while i < len(handle):
+        dx2, dy2 = handle[i]
+        move_to(ship, x + dx2, y + dy2)
+        turn_to(ship, 0.0)
+        ship.beam(on=True)
+        ship.beam_color(value="white")
+        ship.fill(on=True, opacity=0.9)
+        ship.arc(radius=0.3, degrees=360.0)
+        i += 1
+
+    return None
+
+
+def draw_rocket(ship: Ship, x: float, y: float) -> None:
+    """Draw a rocket ship, anchored at the bottom-center of its body (x, y)."""
+    ship.fill(on=False)
+    width = 4.0
+    height = 10.0
+
+    ship.beam_color(value="#C0C0C0")
+
+    # Body (rectangle)
+    ship.beam(on=False)
+    move_to(ship, x - width / 2, y)
+    turn_to(ship, 0.0)
+    ship.beam(on=True)
+    move_to(ship, x - width / 2, y + height)
+    move_to(ship, x + width / 2, y + height)
+    move_to(ship, x + width / 2, y)
+    move_to(ship, x - width / 2, y)
+    ship.beam(on=False)
+
+    # Nose cone (triangle on top of the body)
+    move_to(ship, x - width / 2, y + height)
+    turn_to(ship, 0.0)
+    ship.beam(on=True)
+    move_to(ship, x, y + height + 3.0)
+    move_to(ship, x + width / 2, y + height)
+    ship.beam(on=False)
+
+    # Left fin (triangle at the bottom-left of the body)
+    move_to(ship, x - width / 2, y)
+    turn_to(ship, 0.0)
+    ship.beam(on=True)
+    move_to(ship, x - width / 2 - 1.5, y - 2.0)
+    move_to(ship, x - width / 2, y + 2.0)
+    ship.beam(on=False)
+
+    # Right fin (triangle at the bottom-right of the body)
+    move_to(ship, x + width / 2, y)
+    turn_to(ship, 0.0)
+    ship.beam(on=True)
+    move_to(ship, x + width / 2 + 1.5, y - 2.0)
+    move_to(ship, x + width / 2, y + 2.0)
+    ship.beam(on=False)
+
+    # Window (small circle in the middle of the body)
+    move_to(ship, x, y + height * 0.65)
+    turn_to(ship, 0.0)
+    ship.beam(on=True)
+    ship.beam_color(value="white")
+    ship.fill(on=True, opacity=0.9)
+    ship.arc(radius=0.6, degrees=360.0)
+    ship.fill(on=False)
+    ship.beam(on=False)
+
+>>>>>>> 86c7c64 (commit)
     return None
 
 
