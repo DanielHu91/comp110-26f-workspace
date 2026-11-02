@@ -8,7 +8,7 @@ examples. Replace each raise NotImplementedError("TODO: ...") with your
 own code.
 """
 
-__author__: str = ""  # TODO: your 9-digit PID, like "730123456"
+__author__: str = "730664641"  # TODO: your 9-digit PID, like "730123456"
 
 from comp110_gui import Canvas
 
@@ -88,17 +88,22 @@ class Landscape:
         return self.grid[row][col]
 
     def neighbors(self, row: int, col: int) -> list[Land]:
-        """Return the squares directly north, south, west, and east.
-
-        Squares on the edge of the map have fewer neighbors.
-        """
+        """Return the on-map neighbors in north, south, west, east order."""
         result: list[Land] = []
+
         if row > 0:
             result.append(self.grid[row - 1][col])
+
         if row < terrain.GRID_SIZE - 1:
             result.append(self.grid[row + 1][col])
-        # TODO: add west and east the same way, then return result.
-        raise NotImplementedError("TODO: Landscape.neighbors")
+
+        if col > 0:
+            result.append(self.grid[row][col - 1])
+
+        if col < terrain.GRID_SIZE - 1:
+            result.append(self.grid[row][col + 1])
+
+        return result
 
     def ignite(self, row: int, col: int) -> bool:
         """Set one square on fire if it can burn.
@@ -106,7 +111,13 @@ class Landscape:
         Returns:
             True if the square caught fire.
         """
-        raise NotImplementedError("TODO: Landscape.ignite")
+        square: Land = self.grid[row][col]
+
+        if square.can_ignite():
+            square.ignite()
+            return True
+
+        return False
 
     def step(self) -> None:
         """Advance the fire by one step.
@@ -178,15 +189,41 @@ class Landscape:
 
     def homes(self) -> list[Land]:
         """Return every Home on the map."""
-        raise NotImplementedError("TODO: Landscape.homes")
+
+        result: list[Land] = []
+
+        row: int = 0
+
+        while row < len(self.grid):
+            col: int = 0
+            while col < len(self.grid[row]):
+                square: Land = self.grid[row][col]
+
+                if square.is_home():
+                    result.append(square)
+
+                col += 1
+
+            row += 1
+
+        return result
 
     def homes_total(self) -> int:
         """Return how many homes are on the map."""
         return len(self.homes())
 
     def homes_safe(self) -> int:
-        """Return how many homes have not caught fire."""
-        raise NotImplementedError("TODO: Landscape.homes_safe")
+        """Return the number of homes that are still safe."""
+        result: int = 0
+        all_homes: list[Land] = self.homes()
+
+        index: int = 0
+        while index < len(all_homes):
+            if all_homes[index].can_ignite():
+                result += 1
+            index += 1
+
+        return result
 
     def draw(self, canvas: Canvas) -> None:
         """Draw every square (this makes Landscape a comp110_gui.Drawable)."""
