@@ -3,9 +3,9 @@
 		{
 			"path": "trailhead"
 		},
-		// {
-		// 	"path": "notebooks"
-		// },
+		{
+			"path": "notebooks"
+		},
 		{
 			"path": "spacepaint",
 		},
