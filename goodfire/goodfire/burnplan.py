@@ -80,6 +80,9 @@ def in_prescription(
     {"wind": [1.0, 4.0]}, but {"moisture": 0.14} does not.
     """
     for condition in prescription:
+        if condition not in forecast:
+            return False
+
         value = forecast[condition]
         low = prescription[condition][0]
         high = prescription[condition][1]
@@ -87,7 +90,6 @@ def in_prescription(
         if value < low or value > high:
             return False
     return True
-
 
 
 def first_burn_day(
